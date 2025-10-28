@@ -1,4 +1,4 @@
-# Advanced Polygon Splitter for QGIS
+# Divide Polygon Plugin for QGIS
 
 ![QGIS Plugin](https://img.shields.io/badge/QGIS-3.16+-green.svg)
 ![License](https://img.shields.io/badge/license-GPL--2.0-blue.svg)
@@ -43,7 +43,7 @@ An advanced QGIS plugin that combines automatic grid-based and manual interactiv
 ### From QGIS Plugin Repository (Recommended)
 1. Open QGIS
 2. Go to `Plugins` → `Manage and Install Plugins`
-3. Search for "Advanced Polygon Splitter"
+3. Search for "Divide Polygon"
 4. Click `Install Plugin`
 
 ### Manual Installation
@@ -61,7 +61,7 @@ An advanced QGIS plugin that combines automatic grid-based and manual interactiv
 1. **Select a Polygon**
    - Load a vector layer with polygon features
    - Select exactly one polygon
-   - Click the plugin icon or go to `Vector` → `Advanced Polygon Splitter`
+   - Click the plugin icon or go to `Vector` → `Divide Polygon`
 
 2. **Choose Method**
    - **Automatic**: For grid-based or strip divisions
@@ -300,37 +300,6 @@ All attributes from the source feature are preserved
 
 ---
 
-## Comparison with Original Plugins
-
-### vs. Polygon Divider
-
-| Feature | Polygon Divider | Advanced Splitter |
-|---------|----------------|-------------------|
-| Grid Division | ✅ Yes | ✅ Yes (Enhanced) |
-| Strip Division | ❌ No | ✅ Yes |
-| Manual Direction | ❌ No | ✅ Yes |
-| Interactive Selection | ❌ No | ✅ Yes |
-| Snapping Support | ❌ No | ✅ Yes |
-| Background Processing | ✅ Yes | ⚠️ Synchronous |
-| Code Quality | ⚠️ Deprecated functions | ✅ Modern QGIS 3 |
-| Error Recovery | ✅ Advanced | ✅ Standard |
-
-### vs. Equalyzer
-
-| Feature | Equalyzer | Advanced Splitter |
-|---------|-----------|-------------------|
-| Strip Division | ✅ Yes | ✅ Yes (Same) |
-| Grid Division | ❌ No | ✅ Yes |
-| Edge Selection | ❌ No | ✅ Yes |
-| Line Drawing | ✅ Yes | ✅ Yes (Same) |
-| Snapping | ✅ Yes | ✅ Yes (Same) |
-| Automatic Mode | ❌ No | ✅ Yes |
-| Custom Angles | ❌ No | ✅ Yes |
-
-**Advantage**: Combines best features of both plugins with enhancements!
-
----
-
 ## Troubleshooting
 
 ### Plugin Won't Load
@@ -376,45 +345,6 @@ All attributes from the source feature are preserved
 - Remainder handling option
 - CRS units (meters vs feet)
 
----
-
-## Development
-
-### File Structure
-
-```
-advanced_polygon_splitter/
-├── __init__.py                      # Plugin entry point
-├── metadata.txt                     # Plugin metadata
-├── polygon_splitter_integrated.py   # Main plugin class
-├── splitter_dialog.py               # UI dialog
-├── map_tools.py                     # Interactive map tools
-├── splitter_engine.py               # Core splitting algorithms
-├── icon.png                         # Plugin icon
-└── README.md                        # Documentation
-```
-
-### Code Architecture
-
-```
-PolygonSplitterIntegrated (Main)
-    ├── SplitterDialog (UI)
-    │   ├── Method selection
-    │   ├── Parameter inputs
-    │   └── Validation
-    │
-    ├── Map Tools (Interactive)
-    │   ├── EdgeSelectTool
-    │   ├── LineDrawTool
-    │   └── PointSelectTool
-    │
-    └── SplitterEngine (Core)
-        ├── split_strips()
-        ├── split_grid()
-        ├── split_manual()
-        └── Helper methods
-```
-
 ### Contributing
 
 Contributions welcome! Please:
@@ -444,7 +374,7 @@ A: Currently no, select one polygon at a time. Consider using QGIS Processing ba
 A: Remainder is either absorbed into parts or left as offcut. This is by design.
 
 **Q: Can I customize output field names?**
-A: Not in UI, but you can modify code in `splitter_engine.py`
+A: Not in UI, but you can modify code in `plugin engine`
 
 **Q: Does it work with multipart polygons?**
 A: Yes, but they're decomposed first. Each part is split independently.
@@ -534,7 +464,7 @@ Submit feature requests on GitHub with:
 
 ## Changelog
 
-### Version 2.0 (Current)
+### Version 0.1 (Current)
 - ✨ Integrated Polygon Divider and Equalyzer
 - ✨ Added automatic grid method
 - ✨ Added manual edge selection
@@ -543,16 +473,6 @@ Submit feature requests on GitHub with:
 - ✨ Improved error handling
 - 🐛 Fixed geometry cleaning issues
 - 📝 Comprehensive documentation
-
-### Version 1.0 (Equalyzer)
-- Initial release with strip division
-- Line drawing tool
-- Snapping support
-
-### Version 0.10 (Polygon Divider)
-- QGIS 3.32 compatibility
-- Grid-based splitting
-- Four cut directions
 
 ---
 
@@ -576,15 +496,6 @@ Submit feature requests on GitHub with:
 - GPU acceleration for complex geometries
 - Machine learning for optimal direction
 - Integration with other QGIS tools
-
----
-
-## Contact
-
-- **Project**: Advanced Polygon Splitter
-- **Repository**: GitHub (link)
-- **Maintainer**: Integration Team
-- **Email**: info@polygonsplitter.com
 
 ---
 
