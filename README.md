@@ -1,3 +1,18 @@
+# divide-polygon
+Ultra-precise, **QGIS-free** command-line tool to split polygons into  
+equal parts, equal area, percentage or equal-width strips.
+
+## Install
+```bash
+git clone https://github.com/YOUR_USER/divide-polygon.git
+cd divide-polygon
+python -m pip install -r requirements.txt
+
+
+
+
+
+
 # Divide Polygon Plugin for QGIS
 
 ![QGIS Plugin](https://img.shields.io/badge/QGIS-3.16+-green.svg)
